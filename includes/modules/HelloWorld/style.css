@@ -1,3 +1,63 @@
-.etl-hello-world {
+/* entire container, keeps perspective */
+.flip-container {
+    height: 100%;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+/*  UPDATED! flip the pane when hovered */
+.etl_hello_world:hover .back {
+    transform: rotateY(0deg);
+}
+.etl_hello_world:hover .front {
+    transform: rotateY(180deg);
+}
+
+.etl_hello_world .front, .back {
+    height: 100%;
+    width: 100%;
+}
+.etl_hello_world .et_pb_module_inner{
+    height: 500px;
+}
+.front-image{
+    width: auto;
+    height: 30%;
+
+}
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    backface-visibility: hidden;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+/*  UPDATED! front pane, placed above back */
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(-180deg);
 
 }
